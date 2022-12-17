@@ -40,23 +40,19 @@ while True:
         main_height = int(input("height : "))
     
         if main_height != 2:
-            h = main_height / 2
-            f = str(h)
-            length = len(f)
-            final = f[slice(length, length - 2, -1)]
-            if final == '5':
-                print("float")
-                height = int(math.ceil(main_height / 2))
+            final = main_height % 2
+            if final == 1:
+                height = math.ceil(main_height / 2)
                 for i in range(height):
                     print("  " * (height - i), end='')
                     print((' ' + symbol + '  ') * i)
                 for j in range(height):
                     print('  ' * j, end='')
                     print((' ' + symbol + '  ') * (height - j))
-    
-            elif final == '0':
-                print("int")
-                height = int(math.ceil(main_height + 1) / 2)
+
+            elif final == 0:
+
+                height = int(main_height / 2)
                 for i in range(height + 1):
                     print("  " * (height - i), end='')
                     print((' ' + symbol + '  ')* i)
