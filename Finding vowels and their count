@@ -1,0 +1,8 @@
+str1 = input("enter any sentence : ")
+vowels = []
+count = 0
+for i in str1.lower():
+    if i == "a" or i == "e" or i == "i" or i == "u" or i == "o":
+        vowels.append(i)
+        count += 1
+print(f"Total number of vowels are {count} \n{', '.join(vowels)} are the vowels present in given input")
