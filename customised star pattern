@@ -1,0 +1,68 @@
+import math
+
+symbol = input("\nEnter symbol of you choice : ")
+print(""">Press 'polygon' or 'p'for rectangle and square
+>Press 'triangle' or 't' for triangle pattern's
+>Press 'double' for double star pattern
+""")
+
+while True:
+   
+    pattern = input("Enter a pattern type : ").lower().strip()
+    
+    if pattern == 'polygon' or pattern =='p':
+        rows = int(input("Enter number of rows : "))
+        columns = int(input("enter numbers of columns : "))
+        for i in range(rows):
+            for j in range(columns):
+                print(symbol,end="  ")
+            print()
+    
+    elif pattern == 'triangle'or pattern == 't':
+        print("press 'e' for equilateral triangle, press 'r' for right angled triangle")
+        triangle_type = input("which type of triangle : ").strip().lower()
+    
+        if triangle_type == 'e':
+            height = int(input("enter height of the triangle : "))
+            for i in range(height+1):
+                print('  ' * ((height+1) - (i+1)), end='')
+                print(('  '+ symbol +' ')  * i)
+        elif triangle_type == 'r':
+            height = int(input("Enter height of the triangle : "))
+            for i in range(height+1):
+                for j in range(i):
+                    print((' '+ symbol +' '), end='')
+                print()
+        else:
+            print("invalid input")
+    
+    elif pattern == 'double':
+        main_height = int(input("height : "))
+    
+        if main_height != 2:
+            h = main_height / 2
+            f = str(h)
+            length = len(f)
+            final = f[slice(length, length - 2, -1)]
+            if final == '5':
+                print("float")
+                height = int(math.ceil(main_height / 2))
+                for i in range(height):
+                    print("  " * (height - i), end='')
+                    print((' ' + symbol + '  ') * i)
+                for j in range(height):
+                    print('  ' * j, end='')
+                    print((' ' + symbol + '  ') * (height - j))
+    
+            elif final == '0':
+                print("int")
+                height = int(math.ceil(main_height + 1) / 2)
+                for i in range(height + 1):
+                    print("  " * (height - i), end='')
+                    print((' ' + symbol + '  ')* i)
+                for j in range(height):
+                    print('  ' * j, end='')
+                    print((' ' + symbol + '  ') * (height - j))
+
+        else:
+            print("star pattern for 2 is not available")
