@@ -1,8 +1,24 @@
-str1 = input("enter any sentence : ")
+str1 = input("Enter any sentence : ")
 vowels = []
 count = 0
-for i in str1.lower():
-    if i == "a" or i == "e" or i == "i" or i == "u" or i == "o":
-        vowels.append(i)
+a = 0
+e = 0
+o = 0 
+i = 0 
+u = 0
+for letter in str1.lower():
+    if letter == "a" or letter == "e" or letter == "i" or letter == "u" or letter == "o":
+        vowels.append(letter)
+        if letter == "a":
+            a+=1
+        if letter == "e":
+            e+=1
+        if letter == "i":
+            i+=1
+        if letter == "o":
+            o+=1
+        if letter == "u":
+            u+=1
         count += 1
-print(f"Total number of vowels are {count} \n{', '.join(vowels)} are the vowels present in given input")
+print(f"Total number of vowels are {count} \n{', '.join(vowels)} is the sequence of vowels present in given input")
+print(f"{a=} \n{e=} \n{i=} \n{o=} \n{u=}")
